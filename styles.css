@@ -11,17 +11,27 @@
 .square{
     height: 80px;
     width: 80px;
+   position : relative; 
     
 
 
 }
 
+.center {
+    border: 5px solid;
+    margin: auto;
+    width: 50%;
+  }
 
 .square svg{
 
     height:70px;
     width:70px;
     margin:5px;
+    
+    position: relative;
+    z-index: index -18;
+    
 }
 
 .beige{
@@ -31,6 +41,36 @@ background-color: rgb(217, 191, 159);
 
 .brown{
 
-    background-color :rgb(156, 106, 65)
+    background-color :rgb(156, 106, 65);
 
 }
+
+.black{
+    background-color : rgb(0, 0, 0) !important;
+    fill : black;
+
+}
+
+.white{
+    background-color : rgb(255, 255, 255) !important;
+    fill : white !important;
+    stroke : rgb(0, 0, 0)!important;
+    stroke-width : 3!important;
+
+
+
+}
+
+path{
+    position: relative;
+    z-index: -20;
+
+
+}
+
+.piece{
+
+    position:relative;
+    z-index: 18;
+}
+

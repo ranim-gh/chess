@@ -42,10 +42,24 @@ startPieaces.forEach((element,i )=> {
 
     }
 
+   
+    if (i<=15){
+        square.firstChild.querySelector("g >  Path").classList.add("white")
+    }
+    if (i>47){
+
+        square.firstChild.querySelector("g > Path").classList.add("black")
+
+    }
+
+    
 
 
 
     gameBoard.append(square)
+
+    
+   
     
 });
 
@@ -55,3 +69,63 @@ startPieaces.forEach((element,i )=> {
 
 
 createBoard()
+const allSquares = document.querySelectorAll('#gameBoard .square')
+console.log(allSquares)
+
+
+
+
+let startPositionId
+let draggedElement
+function dragStart(e){
+    //console.log(e.target.parentNode.getAttribute('square-id'))
+    startPositionId= e.target.getAttribute("square-id")
+    draggedElement= e.target
+    log.console(e)
+
+
+}
+
+
+
+
+allSquares.forEach(square => {
+    
+
+
+
+     // Make the element draggable
+    //square.firstChild.querySelector("g > Path").addEventListener('dragstart',dragStart);
+    //square.firstChild.querySelector("g > Path").addEventListener('dragover',dragOver);
+    //square.firstChild.querySelector("g > Path").addEventListener('drop',dragDrop);
+
+    square.addEventListener('dragstart',dragStart);
+    square.addEventListener('dragover',dragOver);
+    square.addEventListener('drop',dragDrop);
+
+
+});
+
+
+
+
+
+
+
+
+function dragDrop(e){
+
+    e.stopPropagation()
+   // e.target.parentNode.append(draggedElement)
+    e.target.append(draggedElement)
+    //e.target.remove()
+    
+}
+
+function dragOver(e){
+
+    e.preventDefault()
+
+
+}
+
