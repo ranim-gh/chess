@@ -77,14 +77,7 @@ console.log(allSquares)
 
 let startPositionId
 let draggedElement
-function dragStart(e){
-    //console.log(e.target.parentNode.getAttribute('square-id'))
-    startPositionId= e.target.getAttribute("square-id")
-    draggedElement= e.target
-    log.console(e)
 
-
-}
 
 
 
@@ -100,6 +93,7 @@ allSquares.forEach(square => {
     //square.firstChild.querySelector("g > Path").addEventListener('drop',dragDrop);
 
     square.addEventListener('dragstart',dragStart);
+
     square.addEventListener('dragover',dragOver);
     square.addEventListener('drop',dragDrop);
 
@@ -109,18 +103,58 @@ allSquares.forEach(square => {
 
 
 
+function dragStart(e){
+    //console.log(e.target.parentNode.getAttribute('square-id'))
+    startPositionId= e.target.parentNode.getAttribute("square-id")
+    draggedElement= e.target
+    console.log(startPositionId)
+    //a=e.target.getAttribute("draggable")
+   //console.log(a)
 
+
+
+
+}
 
 
 
 function dragDrop(e){
 
     e.stopPropagation()
-   // e.target.parentNode.append(draggedElement)
-    e.target.append(draggedElement)
-    //e.target.remove()
+    const parent = e.target.parentNode;
+if (( e.target.getAttribute("draggable") )  ) {
+       console.log("here")
+       if  ( e.target != draggedElement){
+        e.target.parentNode.append(draggedElement);
+
+
+        e.target.remove();
+        }
+
+
+    }
+    else {
+        console.log("nigga")
+
+       // console.log(draggedElement)
+        e.target.append(draggedElement);
+        dropped = true
+
+
+
+
+    }
+        
+
+
+
+
+    }
+    console.log(e)
+
+
     
-}
+
 
 function dragOver(e){
 

@@ -21,6 +21,8 @@
     border: 5px solid;
     margin: auto;
     width: 50%;
+    position:relative;
+    top:25px;
   }
 
 .square svg{
@@ -30,7 +32,7 @@
     margin:5px;
     
     position: relative;
-    z-index: index -18;
+    z-index:  -9;
     
 }
 
@@ -63,7 +65,7 @@ background-color: rgb(217, 191, 159);
 
 path{
     position: relative;
-    z-index: -20;
+    z-index: -10;
 
 
 }
@@ -71,6 +73,6 @@ path{
 .piece{
 
     position:relative;
-    z-index: 18;
+    z-index: 9;
 }
 
