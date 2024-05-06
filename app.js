@@ -18,7 +18,6 @@ const startPieaces =[
 ]
     
 
-
 function createBoard() {
 
 
@@ -96,6 +95,18 @@ allSquares.forEach(square => {
 
     square.addEventListener('dragover',dragOver);
     square.addEventListener('drop',dragDrop);
+    const audio = document.createElement('audio');
+    audio.setAttribute('class', 'dragSound')
+    const source = document.createElement('source');
+    source.setAttribute('src', 'move-self.mp3'); // Replace with your audio file path
+    source.setAttribute('type', 'audio/mpeg');
+    audio.appendChild(source);
+    square.appendChild(audio);
+
+
+
+
+
 
 
 });
@@ -110,6 +121,7 @@ function dragStart(e){
     console.log(startPositionId)
     //a=e.target.getAttribute("draggable")
    //console.log(a)
+  
 
 
 
@@ -145,6 +157,9 @@ if (( e.target.getAttribute("draggable") )  ) {
 
     }
         
+    const dragSound = document.querySelector('.dragSound')
+    dragSound.play()
+
 
 
 
